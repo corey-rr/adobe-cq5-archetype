@@ -4,7 +4,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- http://dev.day.com/docs/en/cq/current/developing/components.html -->
 
-<!-- cq:dialogMode=floating req${artifactId}res setting height and width properties on the Dialog
+<!--
+    cq:dialogMode=floating req${artifactId}res setting height and width properties on the Dialog
     cq:layout=auto|rollover|editbar
     cq:dialogMode=auto|floating|inline
     cq:actions=text:<some text>,-,edit,delete,insert,copymove
@@ -50,13 +51,16 @@
         afterchildinsert=""
     />
 
-    <!-- editorType="text|title|plaintext"
-         configPath="path to config, replaces config sub-node -->
+    <!--
+    editorType="text|title|plaintext"
+    configPath="path to config, replaces config sub-node
+    -->
     <cq:inplaceEditing
         jcr:primaryType="cq:InplaceEditingConfig"
         active="{Boolean}true"
         configPath="optional-or-use-config-sub-node"
         editorType="text">
+
         <!-- Inplace Editting Config -->
         <config
             jcr:primaryType="nt:unstructured"
