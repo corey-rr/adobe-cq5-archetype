@@ -52,6 +52,7 @@
             <include>**/*.ico</include>
             <include>**/*.log</include>
             <include>**/*.css</include>
+            <include>**/*.js</include>
           </includes>
         </fileSet>
         <fileSet filtered="true" encoding="UTF-8">
