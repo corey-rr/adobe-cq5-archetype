@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0              http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${version}</version>
+    </parent>
+
+    <name>${rootArtifactId} (Package)</name>
+    <artifactId>${artifactId}</artifactId>
+    <packaging>content-package</packaging>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <version>0.0.14</version>
+                <extensions>true</extensions>
+
+                <configuration>
+                    <verbose>true</verbose>
+
+                    <!-- Content Package Naming Properties -->
+                    <group>${project.parent.groupId}</group>
+                    <name>${project.parent.artifactId}</name>
+                    <version>${project.parent.version}</version>
+                    <description>${project.parent.description}</description>
+
+
+                    <targetURL>http://localhost:5502/crx/packmgr/service.jsp</targetURL>
+                    <userId>admin</userId>
+                    <password>admin</password>
+
+                    <failOnError>true</failOnError>
+                    <failOnMissingEmbed>true</failOnMissingEmbed>
+                              
+                    <builtContentDirectory>${project.parent.basedir}/ui/src/main/content/jcr_root</builtContentDirectory>
+                    <filterSource>${project.parent.basedir}/ui/src/main/content/META-INF/vault/filter.xml</filterSource>
+
+                    <embeddeds>
+                        <embedded>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>core</artifactId>
+                            <target>/apps/${project.parent.artifactId}/install</target>
+                        </embedded>
+                    </embeddeds>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>package</goal>
+                            <goal>install</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>ui</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+</project>
