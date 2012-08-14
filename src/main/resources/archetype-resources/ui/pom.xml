@@ -62,6 +62,7 @@
     </build>
 
     <dependencies>
+        <!-- Core -->
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>core</artifactId>
@@ -69,12 +70,7 @@
             <type>bundle</type>
         </dependency>
 
-
-        <!-- JEE Dependencies -->
-        <dependency>
-            <groupId>javax.jcr</groupId>
-            <artifactId>jcr</artifactId>
-        </dependency>
+        <!-- JavaX -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -83,23 +79,52 @@
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
         </dependency>
+
+        <!-- JCR -->
         <dependency>
-            <groupId>com.day.cq.wcm</groupId>
-            <artifactId>cq-wcm-taglib</artifactId>
+            <groupId>javax.jcr</groupId>
+            <artifactId>jcr</artifactId>
+        </dependency>
+
+        <!-- Jackrabbit -->
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-jcr-commons</artifactId>
             <type>bundle</type>
         </dependency>
 
-
-        <!-- Apache Dependencies -->
-
-
-        <!-- Apache Felix OSGi -->
-
-
-        <!-- Sling Dependnecies -->
+        <!-- Sling -->
         <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.api</artifactId>
+            <type>bundle</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.jcr.resource</artifactId>
+            <type>bundle</type>
+        </dependency>
+
+        <!-- Apache Felix OSGi -->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <type>bundle</type>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <type>bundle</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr.annotations</artifactId>
+        </dependency>
+
+        <!-- Sling -->
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.jcr.api</artifactId>
             <type>bundle</type>
         </dependency>
         <dependency>
@@ -113,20 +138,17 @@
             <type>bundle</type>
         </dependency>
 
-
-
-        <!-- CQ Dependencies -->
+        <!-- Adobe CQ -->
         <dependency>
             <groupId>com.day.cq</groupId>
             <artifactId>cq-commons</artifactId>
             <type>bundle</type>
         </dependency>
         <dependency>
-            <groupId>com.adobe.granite</groupId>
-            <artifactId>com.adobe.granite.xssprotection</artifactId>
+            <groupId>com.day.cq.dam</groupId>
+            <artifactId>cq-dam-api</artifactId>
             <type>bundle</type>
         </dependency>
-
         <dependency>
             <groupId>com.day.cq.wcm</groupId>
             <artifactId>cq-wcm-api</artifactId>
@@ -137,13 +159,27 @@
             <artifactId>cq-wcm-commons</artifactId>
             <type>bundle</type>
         </dependency>
+        <dependency>
+            <groupId>com.day.cq.wcm</groupId>
+            <artifactId>cq-wcm-foundation</artifactId>
+            <type>bundle</type>
+        </dependency>
+        <dependency>
+            <groupId>com.day.cq.wcm</groupId>
+            <artifactId>cq-wcm-taglib</artifactId>
+            <type>bundle</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.granite</groupId>
+            <artifactId>com.adobe.granite.xssprotection</artifactId>
+            <type>bundle</type>
+        </dependency>
 
         <!-- Misc -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

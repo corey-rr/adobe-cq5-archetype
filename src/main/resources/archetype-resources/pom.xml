@@ -65,14 +65,7 @@
     <dependencyManagement>
         <dependencies>
 
-
-            <!-- JEE Dependencies -->
-            <dependency>
-                <groupId>javax.jcr</groupId>
-                <artifactId>jcr</artifactId>
-                <version>2.0</version>
-                <scope>provided</scope>
-            </dependency>
+            <!-- JavaX -->
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
@@ -92,6 +85,22 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!-- JCR -->
+            <dependency>
+                <groupId>javax.jcr</groupId>
+                <artifactId>jcr</artifactId>
+                <version>2.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Jackrabbit -->
+            <dependency>
+                <groupId>org.apache.jackrabbit</groupId>
+                <artifactId>jackrabbit-jcr-commons</artifactId>
+                <version>2.4.0</version>
+                <scope>provided</scope>
+                <type>bundle</type>
+            </dependency>
 
             <!-- Apache Felix OSGi -->
             <dependency>
@@ -114,9 +123,14 @@
                 <scope>provided</scope>
                 <type>bundle</type>
             </dependency>
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.framework</artifactId>
+                <version>3.0.7</version>
+            </dependency>
 
 
-            <!-- Sling Dependencies -->
+            <!-- Sling -->
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.api</artifactId>
@@ -154,6 +168,20 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.event</artifactId>
+                <version>3.0.2</version>
+                <scope>provided</scope>
+                <type>bundle</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.settings</artifactId>
+                <version>1.0.0</version>
+                <scope>provided</scope>
+                <type>bundle</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.jcr.api</artifactId>
                 <version>2.1.0</version>
                 <scope>provided</scope>
@@ -163,6 +191,13 @@
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.jcr.resource</artifactId>
                 <version>2.0.10</version>
+                <scope>provided</scope>
+                <type>bundle</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.commons.osgi</artifactId>
+                <version>2.0.6</version>
                 <scope>provided</scope>
                 <type>bundle</type>
             </dependency>
@@ -180,19 +215,15 @@
                 <scope>provided</scope>
                 <type>bundle</type>
             </dependency>
-
-
-            <!-- Jackrabbit (JCR Implementation) -->
             <dependency>
-                <groupId>org.apache.jackrabbit</groupId>
-                <artifactId>jackrabbit-jcr-commons</artifactId>
-                <version>2.4.0</version>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.servlets.post</artifactId>
+                <version>2.1.0</version>
                 <scope>provided</scope>
                 <type>bundle</type>
             </dependency>
 
-
-            <!-- CQ Dependencies -->
+            <!-- Adobe CQ -->
             <dependency>
                 <groupId>com.adobe.granite</groupId>
                 <artifactId>com.adobe.granite.xssprotection</artifactId>
@@ -300,7 +331,21 @@
             </dependency>
             <dependency>
                 <groupId>com.day.cq.wcm</groupId>
+                <artifactId>cq-wcm-mobile-api</artifactId>
+                <version>5.4.0</version>
+                <scope>provided</scope>
+                <type>bundle</type>
+            </dependency>
+            <dependency>
+                <groupId>com.day.cq.wcm</groupId>
                 <artifactId>cq-wcm-taglib</artifactId>
+                <version>5.5.0</version>
+                <scope>provided</scope>
+                <type>bundle</type>
+            </dependency>
+            <dependency>
+                <groupId>com.day.cq</groupId>
+                <artifactId>cq-widgets</artifactId>
                 <version>5.5.0</version>
                 <scope>provided</scope>
                 <type>bundle</type>
@@ -334,8 +379,7 @@
                 <type>bundle</type>
             </dependency>
 
-
-            <!-- CQ OSGi Wrappers -->
+            <!-- OSGi Wrappers -->
             <dependency>
                 <groupId>com.day.commons.osgi.wrapper</groupId>
                 <artifactId>com.day.commons.osgi.wrapper.commons-email</artifactId>
@@ -350,25 +394,49 @@
                 <type>bundle</type>
             </dependency>
 
-
-            <!-- Loggers -->
+            <!-- Misc -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>1.6.4</version>
                 <scope>provided</scope>
             </dependency>
-
-
-            <!-- Third Party Project Dependencies -->
-            <!--
             <dependency>
-                <groupId></groupId>
-                <artifactId></artifactId>
-                <version></version>
-                <scope></scope>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.4</version>
+                <scope>provided</scope>
             </dependency>
-            -->
+
+            <!-- Testing -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.10</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>1.9.0</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.commons.testing</artifactId>
+                <version>2.0.10</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.junit.core</artifactId>
+                <version>1.0.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.junit.remote</artifactId>
+                <version>1.0.6</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 </project>
