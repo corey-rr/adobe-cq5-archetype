@@ -6,7 +6,7 @@
 %><%
     final Externalizer externalizer = resourceResolver.adaptTo(Externalizer.class);
 
-    final String title         = GeoHelper.getTitle(currentPage);
+    final String title         = currentPage.getPageTitle();
     final String canonicalURL  = externalizer.absoluteLink(slingRequest, "http", currentPage.getPath()) + ".html";
     final String favicon       = currentDesign.getPath() + "/favicon.ico";
     final boolean hasFavIcon   = (resourceResolver.getResource(favicon) != null);
