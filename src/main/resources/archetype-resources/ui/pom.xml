@@ -15,7 +15,7 @@
 
     <build>
         <resources>
-            <!-- Include VLT package descriptors -->
+            <!-- Include Vlt Content Package descriptors -->
             <resource>
                 <directory>${basedir}/src/main/content/META-INF</directory>
                 <targetPath>META-INF</targetPath>
@@ -31,6 +31,8 @@
                 <targetPath>jcr_root</targetPath>
                 <excludes>
                     <exclude>libs/**</exclude>
+                    <exclude>**/.git</exclude>
+                    <exclude>**/.gitignore</exclude>
                     <exclude>**/.svn</exclude>
                     <exclude>**/.vlt</exclude>
                     <exclude>**/.vltignore</exclude>
@@ -181,5 +183,4 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
     </dependencies>
-
 </project>
