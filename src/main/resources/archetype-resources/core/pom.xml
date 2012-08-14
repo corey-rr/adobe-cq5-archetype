@@ -101,6 +101,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.auth.core</artifactId>
             <scope>provided</scope>
             <type>bundle</type>
         </dependency>
@@ -199,12 +200,12 @@
         <dependency>
             <groupId>com.day.cq.collab</groupId>
             <artifactId>cq-collab-commons</artifactId>
-            <scope>provided</scope>
+            <type>bundle</type>
         </dependency>
         <dependency>
             <groupId>com.day.cq.collab</groupId>
             <artifactId>cq-collab-core</artifactId>
-            <scope>provided</scope>
+            <type>bundle</type>
         </dependency>
         <dependency>
             <groupId>com.day.cq.dam</groupId>
@@ -214,7 +215,7 @@
         <dependency>
             <groupId>com.day.cq.dam</groupId>
             <artifactId>cq-dam-commons</artifactId>
-            <scope>provided</scope>
+            <type>bundle</type>
         </dependency>
         <dependency>
             <groupId>com.day.cq.wcm</groupId>
