@@ -12,6 +12,12 @@
     <artifactId>${artifactId}</artifactId>
     <packaging>content-package</packaging>
 
+    <properties>
+        <cq.host>http://localhost:4502</cq.host>
+        <cq.username>admin</cq.username>
+        <cq.password>admin</cq.password>
+    </properties>
+
     <build>
         <plugins>
 
@@ -30,10 +36,9 @@
                     <version>${project.parent.version}</version>
                     <description>${project.parent.description}</description>
 
-
-                    <targetURL>http://localhost:5502/crx/packmgr/service.jsp</targetURL>
-                    <userId>admin</userId>
-                    <password>admin</password>
+                    <targetURL>${cq.host}/crx/packmgr/service.jsp</targetURL>
+                    <userId>${cq.username}</userId>
+                    <password>${cq.password}</password>
 
                     <failOnError>true</failOnError>
                     <failOnMissingEmbed>true</failOnMissingEmbed>
