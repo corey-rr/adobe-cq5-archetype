@@ -13,7 +13,7 @@
     <packaging>bundle</packaging>
 
     <build>
-        <finalName>${project.parent.groupId}.${project.parent.artifactId}-${artifactId}-${project.parent.version}</finalName>
+        <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.artifactId}-${project.parent.version}</finalName>
 
         <plugins>
             <!-- Build the OSGi Bundle artifact -->
