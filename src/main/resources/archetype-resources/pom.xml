@@ -12,7 +12,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.ui.apps.install.dir>/apps/${artifactId}/install</project.ui.apps.install.dir>
     </properties>
+
+  <modules>
+    <module>core</module>
+    <module>ui</module>
+  </modules>
 
     <build>
         <plugins>

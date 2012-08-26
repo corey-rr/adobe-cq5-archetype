@@ -9,37 +9,39 @@
     </parent>
 
     <name>${rootArtifactId} (UI)</name>
-    <description>Adobe CQ Scripts and resources for visual display.</description>
+    <description>Adobe CQ presentation-based scripts and resources.</description>
     <artifactId>${artifactId}</artifactId>
-    <packaging>jar</packaging>
+    <packaging>content-package</packaging>
 
     <build>
-        <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.artifactId}-${project.parent.version}</finalName>
-
         <resources>
-            <!-- Include Vlt Content Package descriptors -->
+            <!-- Content package definition files -->
             <resource>
-                <directory>${basedir}/src/main/content/META-INF</directory>
-                <targetPath>META-INF</targetPath>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**</include>
-                </includes>
+                <directory>../ui/src/main/content/META-INF</directory>
+                <targetPath>../vault-work/META-INF</targetPath>
             </resource>
 
-            <!-- Include Node definitions, but do not include SCM and VLT utility node defs -->
-            <resource>
-                <directory>${basedir}/src/main/content/jcr_root</directory>
-                <targetPath>jcr_root</targetPath>
+            <!-- Clean unwanted files and folders from Vault package -->
+			<resource>
+				<directory>../ui/src/main/content/jcr_root</directory>
+				<targetPath>../vault-work/jcr_root</targetPath>
+				<filtering>true</filtering>
+				<includes>
+					<include>**</include>
+                </includes>
                 <excludes>
-                    <exclude>libs/**</exclude>
+					<exclude>libs/**</exclude>
+					<exclude>**/.svn</exclude>
                     <exclude>**/.git</exclude>
                     <exclude>**/.gitignore</exclude>
-                    <exclude>**/.svn</exclude>
-                    <exclude>**/.vlt</exclude>
-                    <exclude>**/.vltignore</exclude>
-                </excludes>
-            </resource>
+					<exclude>**/.vlt</exclude>
+					<exclude>**/.vltignore</exclude>
+					<exclude>**/.vlt-sync-config.properties</exclude>
+					<exclude>**/.vlt-sync.log</exclude>
+                    <exclude>**/.DS_Store</exclude>
+                    <exclude>**/Thumbs.db</exclude>
+				</excludes>
+			</resource>
         </resources>
 
         <plugins>
@@ -62,7 +64,57 @@
                     </execution>
                 </executions>
             </plugin>
+
+
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <version>0.0.14</version>
+                <extensions>true</extensions>
+
+                <configuration>
+                    <verbose>true</verbose>
+
+                    <!-- Content package naming properties -->
+                    <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.parent.version}</finalName>
+                    <group>${project.parent.groupId}</group>
+                    <name>${project.parent.groupId}.${project.parent.artifactId}</name>
+                    <version>${project.parent.version}</version>
+                    <description>${project.parent.description}</description>
+
+                    <failOnError>true</failOnError>
+                              
+                    <builtContentDirectory>${project.parent.basedir}/ui/src/main/content/jcr_root</builtContentDirectory>
+                    <filterSource>${project.parent.basedir}/ui/src/main/content/META-INF/vault/filter.xml</filterSource>
+
+                    <!-- Project bundle embeds handled by Core project building.
+                         Jar files are copied to UI project to facilitate use of
+                         the usual vlt-based development lifecycle.
+                    -->
+                    <!--
+                    <embeddeds>
+                        <embedded>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>core</artifactId>
+                            <target>/apps/${project.parent.artifactId}/install</target>
+                        </embedded>
+                    </embeddeds>
+                    <failOnMissingEmbed>true</failOnMissingEmbed>
+                    -->
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>package</goal>
+                            <goal>install</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+
+        <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.artifactId}-${project.parent.version}</finalName>
     </build>
 
     <dependencies>
@@ -70,7 +122,7 @@
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>core</artifactId>
-            <version>${project.version}</version>
+            <version>${project.parent.version}</version>
             <type>bundle</type>
         </dependency>
 

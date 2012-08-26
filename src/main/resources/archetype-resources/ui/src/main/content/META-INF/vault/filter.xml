@@ -5,7 +5,7 @@
 <workspaceFilter vesion="1.0">
 	<filter root="/apps/${parentArtifactId}" />
 	<filter root="/etc/designs/${parentArtifactId}">
-		<exclude pattern="/etc/designs/${parentArtifactId}/jcr:content" />
+		<exclude pattern="/etc/designs/${parentArtifactId}/jcr:content/*" />
 	</filter>
     <filter root="/etc/clientlibs/${parentArtifactId}" />
 </workspaceFilter>

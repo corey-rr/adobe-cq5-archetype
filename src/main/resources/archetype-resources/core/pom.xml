@@ -13,10 +13,66 @@
     <packaging>bundle</packaging>
 
     <build>
-        <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.artifactId}-${project.parent.version}</finalName>
-
         <plugins>
-            <!-- Build the OSGi Bundle artifact -->
+            <!-- Clean bundle jars for UI project's apps install dir -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <verbose>false</verbose>
+                    <filesets>
+                        <fileset>
+                            <directory>../ui/src/main/content/jcr_root/${project.ui.apps.install.dir}/</directory>
+                            <followSymlinks>false</followSymlinks>
+                            <includes>
+                                <include>${project.build.finalName}.jar</include>
+                            </includes>
+                        </fileset>
+                    </filesets>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>auto-clean</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Copy Core Bundle to UI project.
+                 Used to vlt-based development.
+                 Content-package expects necessary Jar files to be copied to
+                 UI's apps install directory.
+                (Content package embedding has been disabled in POM by default)
+            -->
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>install-jar</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <overWrite>true</overWrite>
+                                    <destFileName>${project.build.fileName}</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>../ui/src/main/content/jcr_root/${project.ui.apps.install.dir}</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Build the OSGi bundle artifacts -->
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-scr-plugin</artifactId>
@@ -34,6 +90,7 @@
                 </configuration>
             </plugin>
 
+            <!-- Build OSGi bundle -->
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -49,11 +106,13 @@
                         <Embed-Directory>target/dependency</Embed-Directory>
                         <Embed-StripGroup>true</Embed-StripGroup>
 
-                        <Export-Package>${project.parent.groupId}.${project.parent.artifactId}.*</Export-Package>
+                        <Export-Package>${project.parent.groupId}.${project.parent.artifactId}.*;version=${project.parent.version}</Export-Package>
                     </instructions>
                 </configuration>
             </plugin>
         </plugins>
+
+        <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.artifactId}-${project.parent.version}</finalName>
     </build>
 
     <dependencies>

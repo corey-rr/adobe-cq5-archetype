@@ -80,6 +80,5 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="content-package" dir="content-package" name="content-package" />
   </modules>
 </archetype-descriptor>
