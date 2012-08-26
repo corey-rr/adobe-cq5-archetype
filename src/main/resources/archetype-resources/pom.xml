@@ -10,9 +10,14 @@
     <packaging>pom</packaging>
 
     <properties>
+        <project.ui.apps.installdir>/apps/${artifactId}/install</project.ui.apps.installdir>
+
+        <vault.targetURL>http://localhost:4502/crx/packmgr/service.jsp</vault.targetURL>
+        <vault.userId>admin</vault.userId>
+        <vault.password>admin</vault.password>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.ui.apps.install.dir>/apps/${artifactId}/install</project.ui.apps.install.dir>
     </properties>
 
   <modules>

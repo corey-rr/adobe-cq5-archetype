@@ -17,14 +17,14 @@
         <resources>
             <!-- Content package definition files -->
             <resource>
-                <directory>../ui/src/main/content/META-INF</directory>
-                <targetPath>../vault-work/META-INF</targetPath>
+                <directory>${basedir}/src/main/content/META-INF</directory>
+                <targetPath>${basedir}/target/vault-work/META-INF</targetPath>
             </resource>
 
             <!-- Clean unwanted files and folders from Vault package -->
 			<resource>
-				<directory>../ui/src/main/content/jcr_root</directory>
-				<targetPath>../vault-work/jcr_root</targetPath>
+				<directory>${basedir}/src/main/content/jcr_root</directory>
+				<targetPath>${basedir}/target/vault-work/jcr_root</targetPath>
 				<filtering>true</filtering>
 				<includes>
 					<include>**</include>
@@ -73,8 +73,6 @@
                 <extensions>true</extensions>
 
                 <configuration>
-                    <verbose>true</verbose>
-
                     <!-- Content package naming properties -->
                     <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.parent.version}</finalName>
                     <group>${project.parent.groupId}</group>
@@ -84,8 +82,8 @@
 
                     <failOnError>true</failOnError>
                               
-                    <builtContentDirectory>${project.parent.basedir}/ui/src/main/content/jcr_root</builtContentDirectory>
-                    <filterSource>${project.parent.basedir}/ui/src/main/content/META-INF/vault/filter.xml</filterSource>
+                    <builtContentDirectory>${basedir}/src/main/content/jcr_root</builtContentDirectory>
+                    <filterSource>${basedir}/src/main/content/META-INF/vault/filter.xml</filterSource>
 
                     <!-- Project bundle embeds handled by Core project building.
                          Jar files are copied to UI project to facilitate use of

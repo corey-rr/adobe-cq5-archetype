@@ -22,7 +22,7 @@
                     <verbose>false</verbose>
                     <filesets>
                         <fileset>
-                            <directory>../ui/src/main/content/jcr_root/${project.ui.apps.install.dir}/</directory>
+                            <directory>${project.parent.ui.basedir}/src/main/content/jcr_root/${project.ui.apps.installdir}/</directory>
                             <followSymlinks>false</followSymlinks>
                             <includes>
                                 <include>${project.build.finalName}.jar</include>
@@ -66,7 +66,7 @@
                                     <destFileName>${project.build.fileName}</destFileName>
                                 </artifactItem>
                             </artifactItems>
-                            <outputDirectory>../ui/src/main/content/jcr_root/${project.ui.apps.install.dir}</outputDirectory>
+                            <outputDirectory>${project.parent.ui.basedir}/src/main/content/jcr_root/${project.ui.apps.installdir}</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
