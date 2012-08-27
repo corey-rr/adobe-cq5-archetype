@@ -11,6 +11,8 @@
 
     <properties>
         <project.ui.apps.installdir>/apps/${artifactId}/install</project.ui.apps.installdir>
+        <project.ui.basedir>${project.parent.basedir}/ui</project.ui.basedir>
+        <project.core.basedir>${project.parent.basedir}/core</project.core.basedir>
 
         <vault.targetURL>http://localhost:4502/crx/packmgr/service.jsp</vault.targetURL>
         <vault.userId>admin</vault.userId>
