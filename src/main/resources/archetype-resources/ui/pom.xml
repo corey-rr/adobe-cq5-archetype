@@ -65,7 +65,6 @@
                 </executions>
             </plugin>
 
-
             <plugin>
                 <groupId>com.day.jcr.vault</groupId>
                 <artifactId>content-package-maven-plugin</artifactId>
@@ -78,12 +77,15 @@
                     <group>${project.parent.groupId}</group>
                     <name>${project.parent.groupId}.${project.parent.artifactId}</name>
                     <version>${project.parent.version}</version>
+
                     <description>${project.parent.description}</description>
 
                     <failOnError>true</failOnError>
                               
-                    <builtContentDirectory>${basedir}/src/main/content/jcr_root</builtContentDirectory>
                     <filterSource>${basedir}/src/main/content/META-INF/vault/filter.xml</filterSource>
+
+                    <failOnMissingEmbed>false</failOnMissingEmbed>
+                    <builtContentDirectory>vault-work</builtContentDirectory>
 
                     <!-- Project bundle embeds handled by Core project building.
                          Jar files are copied to UI project to facilitate use of
