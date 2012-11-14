@@ -5,7 +5,7 @@
     <name>${artifactId}</name>
     <description>Adobe CQ 5.x Project for ${artifactId}.</description>
     <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}</artifactId>
+    <artifactId>parent</artifactId>
     <version>${version}</version>
     <packaging>pom</packaging>
 

@@ -11,9 +11,9 @@
     <groupId>com.activecq</groupId>
     <artifactId>adobe-cq5-archetype</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <name>ActiveCQ CQ5 Maven Archetype</name>
     <packaging>maven-archetype</packaging>
 
-    <name>Adobe CQ 5.x Maven Archetype</name>
     <description>Maven Archetype for for Adobe CQ 5.x based projects.</description>
 
     <licenses>

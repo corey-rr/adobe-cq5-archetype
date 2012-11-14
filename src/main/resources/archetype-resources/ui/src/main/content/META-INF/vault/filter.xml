@@ -4,7 +4,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter vesion="1.0">
 	<filter root="/apps/${parentArtifactId}" />
-	<filter root="/etc/designs/${parentArtifactId}">
+	<filter root="/etc/designs/${parentArtifactId}" mode="merge">
 		<exclude pattern="/etc/designs/${parentArtifactId}/jcr:content/*" />
 	</filter>
     <filter root="/etc/clientlibs/${parentArtifactId}" />
