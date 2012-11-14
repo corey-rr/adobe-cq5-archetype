@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>${artifactId}</artifactId>
-    <name>${project.parent.name} (Core)</name>
+    <name>${rootArtifactId} (Core)</name>
     <packaging>bundle</packaging>
 
     <build>
@@ -22,7 +22,7 @@
                     <verbose>false</verbose>
                     <filesets>
                         <fileset>
-                            <directory>${project.ui.basedir}/src/main/content/jcr_root/${project.ui.apps.installdir}/</directory>
+                            <directory>${project.parent.ui.basedir}/src/main/content/jcr_root/${project.ui.apps.installdir}/</directory>
                             <followSymlinks>false</followSymlinks>
                             <includes>
                                 <include>${project.build.finalName}.jar</include>
@@ -66,7 +66,7 @@
                                     <destFileName>${project.build.fileName}</destFileName>
                                 </artifactItem>
                             </artifactItems>
-                            <outputDirectory>${project.ui.basedir}/src/main/content/jcr_root/${project.ui.apps.installdir}</outputDirectory>
+                            <outputDirectory>${project.parent.ui.basedir}/src/main/content/jcr_root/${project.ui.apps.installdir}</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
@@ -99,20 +99,20 @@
                 <configuration>
                     <instructions>
                         <Bundle-Name>${project.parent.name}</Bundle-Name>
-                        <Bundle-SymbolicName>${project.groupId}-${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>${project.parent.groupId}.${project.parent.artifactId}</Bundle-SymbolicName>
 
                         <Sling-Test-Regexp>.*Test</Sling-Test-Regexp>
 
                         <Embed-Directory>target/dependency</Embed-Directory>
                         <Embed-StripGroup>true</Embed-StripGroup>
 
-                        <Export-Package>${project.groupId}.*;version=${project.version}</Export-Package>
+                        <Export-Package>${project.parent.groupId}.${project.parent.artifactId}.*;version=${project.parent.version}</Export-Package>
                     </instructions>
                 </configuration>
             </plugin>
         </plugins>
 
-        <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+        <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.artifactId}-${project.parent.version}</finalName>
     </build>
 
     <dependencies>

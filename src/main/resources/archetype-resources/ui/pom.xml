@@ -8,7 +8,7 @@
         <version>${version}</version>
     </parent>
 
-    <name>>${project.parent.name} (UI)</name>
+    <name>${rootArtifactId} (UI)</name>
     <description>Adobe CQ presentation-based scripts and resources.</description>
     <artifactId>${artifactId}</artifactId>
     <packaging>content-package</packaging>
@@ -25,7 +25,7 @@
 			<resource>
 				<directory>${basedir}/src/main/content/jcr_root</directory>
 				<targetPath>${basedir}/target/vault-work/jcr_root</targetPath>
-				<filtering>false</filtering>
+				<filtering>true</filtering>
 				<includes>
 					<include>**</include>
                 </includes>
@@ -73,10 +73,10 @@
 
                 <configuration>
                     <!-- Content package naming properties -->
-                    <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
-                    <group>${project.groupId}</group>
-                    <name>${project.groupId}.${project.artifactId}</name>
-                    <version>${project.version}</version>
+                    <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.parent.version}</finalName>
+                    <group>${project.parent.groupId}</group>
+                    <name>${project.parent.groupId}.${project.parent.artifactId}</name>
+                    <version>${project.parent.version}</version>
 
                     <description>${project.parent.description}</description>
 
@@ -114,15 +114,15 @@
             </plugin>
         </plugins>
 
-        <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
+        <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.artifactId}-${project.parent.version}</finalName>
     </build>
 
     <dependencies>
         <!-- Core -->
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>${project.parent.groupId}</groupId>
             <artifactId>core</artifactId>
-            <version>${project.version}</version>
+            <version>${project.parent.version}</version>
             <type>bundle</type>
         </dependency>
 
