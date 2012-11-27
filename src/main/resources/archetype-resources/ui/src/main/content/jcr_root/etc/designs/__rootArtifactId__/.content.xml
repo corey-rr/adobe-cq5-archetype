@@ -11,8 +11,9 @@
         jcr:primaryType="nt:unstructured"
         sling:resourceType="wcm/core/components/designer">
     </jcr:content>
+    <css/>
     <images/>
+    <js/>
     <favicon.ico/>
     <touchicon.png/>
-    <static.css/>
 </jcr:root>

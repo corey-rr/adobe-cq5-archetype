@@ -4,13 +4,13 @@
 
     <parent>
         <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
+        <artifactId>parent</artifactId>
         <version>${version}</version>
     </parent>
 
     <name>${rootArtifactId} (UI)</name>
     <description>Adobe CQ presentation-based scripts and resources.</description>
-    <artifactId>${artifactId}</artifactId>
+    <artifactId>ui</artifactId>
     <packaging>content-package</packaging>
 
     <build>
@@ -72,10 +72,12 @@
                 <extensions>true</extensions>
 
                 <configuration>
+                    <verbose>true</verbose>
+
                     <!-- Content package naming properties -->
-                    <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.parent.version}</finalName>
-                    <group>${project.parent.groupId}</group>
-                    <name>${project.parent.groupId}.${project.parent.artifactId}</name>
+                    <finalName>${project.groupId}-${project.version}</finalName>
+                    <group>${project.organization.name}</group>
+                    <name>${project.groupId}</name>
                     <version>${project.parent.version}</version>
 
                     <description>${project.parent.description}</description>
@@ -86,21 +88,6 @@
 
                     <failOnMissingEmbed>false</failOnMissingEmbed>
                     <builtContentDirectory>vault-work</builtContentDirectory>
-
-                    <!-- Project bundle embeds handled by Core project building.
-                         Jar files are copied to UI project to facilitate use of
-                         the usual vlt-based development lifecycle.
-                    -->
-                    <!--
-                    <embeddeds>
-                        <embedded>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>core</artifactId>
-                            <target>/apps/${project.parent.artifactId}/install</target>
-                        </embedded>
-                    </embeddeds>
-                    <failOnMissingEmbed>true</failOnMissingEmbed>
-                    -->
                 </configuration>
 
                 <executions>
@@ -114,15 +101,15 @@
             </plugin>
         </plugins>
 
-        <finalName>${project.parent.groupId}.${project.parent.artifactId}-${project.artifactId}-${project.parent.version}</finalName>
+        <finalName>${project.groupId}-${project.version}</finalName>
     </build>
 
     <dependencies>
         <!-- Core -->
         <dependency>
-            <groupId>${project.parent.groupId}</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>core</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${project.version}</version>
             <type>bundle</type>
         </dependency>
 

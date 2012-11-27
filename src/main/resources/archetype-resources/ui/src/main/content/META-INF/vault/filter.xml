@@ -2,6 +2,13 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+<filter mode="xxx" root="..."/>
+ Modes: replace, merge, update
+ - Replace: Default. Replaces content of "root" content tree w package contents
+ - Merge: New content is added but existing content is not touch
+ - Update: Existing content is updated (overwritten) but not removed
+-->
 <workspaceFilter vesion="1.0">
 	<filter root="/apps/${parentArtifactId}" />
 	<filter root="/etc/designs/${parentArtifactId}">
