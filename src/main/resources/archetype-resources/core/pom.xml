@@ -8,8 +8,8 @@
         <version>${version}</version>
     </parent>
 
-    <artifactId>core</artifactId>
     <name>${rootArtifactId} (Core)</name>
+    <artifactId>core</artifactId>
     <packaging>bundle</packaging>
 
     <build>
@@ -52,7 +52,7 @@
                 <executions>
                     <execution>
                         <id>install-jar</id>
-                        <phase>install</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>copy</goal>
                         </goals>
@@ -63,7 +63,7 @@
                                     <artifactId>${project.artifactId}</artifactId>
                                     <version>${project.version}</version>
                                     <overWrite>true</overWrite>
-                                    <destFileName>${project.build.fileName}</destFileName>
+                                    <destFileName>${project.build.finalName}.jar</destFileName>
                                 </artifactItem>
                             </artifactItems>
                             <outputDirectory>${project.ui.basedir}/src/main/content/jcr_root/${project.ui.apps.installdir}</outputDirectory>
@@ -105,7 +105,7 @@
 
                         <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
                         <Embed-Directory>target/dependency</Embed-Directory>
-                        <Embed-StripGroup>true</Embed-StripGroup>
+                        <Embed-StripGroup>false</Embed-StripGroup>
 
                         <Export-Package>
                             !${project.groupId}.impl.*,
