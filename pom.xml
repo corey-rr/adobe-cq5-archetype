@@ -30,6 +30,11 @@
         <url>git@github.com:activecq/adobe-cq5-archetype.git</url>
     </scm>
 
+    <organization>
+        <name>ActiveCQ</name>
+        <url>http://activecq.com</url>
+    </organization>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
