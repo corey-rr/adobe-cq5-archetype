@@ -3,7 +3,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <name>${artifactId}</name>
-    <description>Adobe CQ 5.x Project for ${artifactId}.</description>
     <groupId>${groupId}</groupId>
     <artifactId>parent</artifactId>
     <version>${version}</version>
@@ -76,7 +75,13 @@
                 <version>2.1.2</version>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.0</version>
+            </plugin>
         </plugins>
+
         <pluginManagement>
             <plugins>
                 <plugin>
