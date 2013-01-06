@@ -9,7 +9,7 @@
     </parent>
 
     <name>${rootArtifactId} (UI)</name>
-    <description>Adobe CQ presentation-based scripts and resources.</description>
+    <description>** Description to appear in Adobe CQ Content Package Manager for this Package **</description>
     <artifactId>ui</artifactId>
     <packaging>content-package</packaging>
 
@@ -25,7 +25,7 @@
 			<resource>
 				<directory>${basedir}/src/main/content/jcr_root</directory>
 				<targetPath>${basedir}/target/vault-work/jcr_root</targetPath>
-				<filtering>true</filtering>
+				<filtering>false</filtering>
 				<includes>
 					<include>**</include>
                 </includes>
@@ -68,7 +68,7 @@
             <plugin>
                 <groupId>com.day.jcr.vault</groupId>
                 <artifactId>content-package-maven-plugin</artifactId>
-                <version>0.0.14</version>
+                <version>0.0.18</version>
                 <extensions>true</extensions>
 
                 <configuration>
@@ -80,7 +80,7 @@
                     <name>${project.groupId}</name>
                     <version>${project.parent.version}</version>
 
-                    <description>${project.parent.description}</description>
+                    <description>${project.description}</description>
 
                     <failOnError>true</failOnError>
                               
